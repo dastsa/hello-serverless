@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: windows
+pool: poolDanielss
 
 steps:
 - task: CmdLine@2
