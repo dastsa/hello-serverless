@@ -10,13 +10,6 @@ pool:
   vmImage: windows-latest
 
 steps:
-- task: NodeTool@0
+- task: CmdLine@2
   inputs:
-    versionSpec: '16.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    npm install
-    npm rebuild
-    npm run build --skip-test --if-present
-  displayName: 'npm install and build'
+    script: 'echo Hello world'
