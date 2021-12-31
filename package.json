@@ -14,12 +14,34 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test:coverage": "jest --coverage --collectCoverageFrom=api/**"
+    "test:coverage": "jest --ci --coverage"
   },
-  "jest":{
-    "collectCoverage": true,
-    "coverageReporters": ["lcov"],
-    "coverageDirectory": "./test/"
+  "jest": {
+    "coverageReporters": [
+      "cobertura",
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "api/**"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "test",
+          "outputName": "junit.xml"
+        }
+      ]
+    ]
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "output": "test/junit.xml",
+    "classNameTemplate": "{classname} - {title}",
+    "titleTemplate": "{classname} - {title}",
+    "ancestorSeparator": " > ",
+    "usePathForSuiteName": "true"
   },
   "author": "",
   "license": "ISC"
