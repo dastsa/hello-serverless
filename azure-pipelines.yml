@@ -9,6 +9,20 @@ trigger:
 pool: poolDaniel
 
 steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+    checkLatest: true
+  displayName: 'install Node js'
 - task: CmdLine@2
   inputs:
-    script: 'echo Hello world'
+    script: |
+      npm install
+      npm rebuild
+      npm build
+  displayName: 'install and build'
+- task: CmdLine@2
+  inputs:
+    script: 'npm run test:coverage'
+  condition: succeeded()
+  displayName: 'Test Coverage'
