@@ -7,6 +7,7 @@
     "aws-sdk": "^2.665.0",
     "aws-sdk-mock": "^5.1.0",
     "jest": "^26.0.1",
+    "jest-junit": "^10.0.0",
     "serverless": "^1.68.0",
     "serverless-dynamodb-local": "^0.2.39",
     "serverless-offline": "^6.1.4"
